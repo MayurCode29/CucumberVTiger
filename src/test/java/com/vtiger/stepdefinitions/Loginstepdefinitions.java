@@ -17,6 +17,7 @@ import io.cucumber.java.en.When;
 
 public class Loginstepdefinitions extends BaseClass{
 	
+	
 	@Before
 	public void getScenarioName(Scenario scenario)
 	{
@@ -93,6 +94,25 @@ public class Loginstepdefinitions extends BaseClass{
 		lp.setUserName(uid);
 		lp.setPassword(pwd);
 		}
+	
+	@When("user can verify the title")
+	public void verifyTitle()
+	{
+		lp.VerifyTitle(dt.get(TcName).get("Title"));
+	}
+	
+	
+	@When("user can verify the logo")
+	public void verifyLogo()
+	{
+		lp.VerifyLogo();
+	}
+	
+	@When("user can verify keymodule text")
+	public void verifyeyModuleText()
+	{
+		lp.VerifyLogo();
+	}
 	
 	   
 }

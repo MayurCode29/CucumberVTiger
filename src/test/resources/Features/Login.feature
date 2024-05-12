@@ -1,8 +1,19 @@
 Feature: Login functionality
 
-Background:
+
+Scenario: Verify_Title_TC01
 Given user should be on login page
-@test1
+And user can verify the title
+
+Scenario: Verify_Logo_TC02
+Given user should be on login page
+And user can verify the logo
+
+Scenario: Verify_KeyModule_text_TC03
+Given user should be on login page
+And user can verify keymodule text
+
+
 Scenario: Valid Login
 When user enters valid credentials
 Then user should be navigated to homepage

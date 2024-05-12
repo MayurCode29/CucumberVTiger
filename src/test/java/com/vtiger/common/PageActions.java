@@ -37,7 +37,7 @@ public class PageActions {
 		Date d=new Date();
 		DateFormat ft=new SimpleDateFormat("ddMMyyyyhhmmss");
 		String fileName=ft.format(d);
-		String path=(System.getProperty("user.dir")+ "/src/test/java/com/vtiger/reports/ExtentReport"+fileName+".html");
+		String path=(System.getProperty("user.dir")+ "/src/test/java/com/vtiger/reports/Screenshot/"+fileName+".png");
 		TakesScreenshot ts=((TakesScreenshot)driver);
 		File srcFile=ts.getScreenshotAs(OutputType.FILE);
 		//Move image file to new destination
@@ -52,6 +52,18 @@ public class PageActions {
 			e.printStackTrace();
 		}
 		return path;
+	}
+	
+	public void validate_Expected_Actual_Text(String exp,String act,String msg)
+	{
+		if(exp.equals(act))
+		{
+			BaseClass.logger.pass(msg);
+		}
+		else
+		{
+			BaseClass.logger.fail("comparison failed because expected text is "+exp+" and found "+act+"<a href='"+getScreenShot()+"'><span class='label end-time'>Screenshot</span></a>");
+		}
 	}
 	
 	public void setText(WebElement elm,String value,String msg)
@@ -106,17 +118,19 @@ public class PageActions {
 	}
 	
 	
-	public void ClickExist(WebElement elm)
+	public void ElementExist(WebElement elm,String msg)
 	{
 		try
 		{
 		wait.until(ExpectedConditions.visibilityOf(elm));
 		elm.isDisplayed();
+		BaseClass.logger.pass(msg);
 		}
 		
 		catch(Exception e)
 		{
 			e.printStackTrace();
+			BaseClass.logger.fail("element not found  due to errror"+e.getMessage()+"<a href='"+getScreenShot()+"'><span class='label end-time'>Screenshot</span></a>");
 		}
 	}
 	
@@ -135,7 +149,7 @@ public class PageActions {
 		catch(Exception e)
 		{
 			e.printStackTrace();
-			BaseClass.logger.fail("failed due to"+e.getMessage());
+			BaseClass.logger.fail("failed due to"+e.getMessage()+"<a href='"+getScreenShot()+"'><span class='label end-time'>Screenshot</span></a>");
 			
 			
 		}

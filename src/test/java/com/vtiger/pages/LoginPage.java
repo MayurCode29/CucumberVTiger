@@ -24,23 +24,37 @@ public class LoginPage extends PageActions {
 	@FindBy(name="user_password")
 	WebElement tb_pass;
 	
-	@FindBy(name="Login123")
+	@FindBy(name="Login")
 	WebElement btn_login;
 	
 	@FindBy(name="login_theme")
 	WebElement dp_theme;
 	
-	public boolean VerifyTitle(String expectedTitle)
+	@FindBy(xpath="//img[@src='include/images/login_left.gif']")
+	WebElement img_logo;
+	
+	@FindBy(xpath="//font[text()='Key Modules']")
+	WebElement txt_keyModules;
+	
+	public void VerifyTitle(String expectedTitle)
 	
 	{
-		if(driver.getTitle().equals(expectedTitle))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		validate_Expected_Actual_Text(expectedTitle,driver.getTitle(),"expected and actual title validated successfully");
+	}
+	
+	
+    public void VerifyLogo()
+	
+	{
+		
+    	ElementExist(img_logo,"Logo displayed successfully");
+	}
+    
+public void VerifyKeyModuleText()
+	
+	{
+		
+    	ElementExist(txt_keyModules,"Key moduletext verified");
 	}
 	
 	public void Valid_Login(String userid,String pwd)

@@ -11,7 +11,7 @@ When user clicks on New lead link
 And fill all mandatory fields and clicks on save
 Then lead should be created successfully
 
-@test3
+
 Scenario: Create Lead with mandatory fields TC02
 Given user should be on login page
 When user enters valid credentials

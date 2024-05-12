@@ -98,7 +98,7 @@ public class BaseClass {
 	
 	public Map<String,Map<String,String>> readExcel(String file,String sheet)
 	{
-		Map<String,Map<String,String>> dt=new HashMap<>();
+		Map<String,Map<String,String>> dt=new HashMap<String,Map<String,String>>();
 		try
 		{
 	    
@@ -113,7 +113,7 @@ public class BaseClass {
 		while(recordset.next()){
 			
 		
-		Map<String,String>rowdata=new HashMap<>();
+		Map<String,String>rowdata=new HashMap<String,String>();
 		
 		for(int i=0;i<colcount;i++)
 		{
